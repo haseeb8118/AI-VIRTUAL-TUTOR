@@ -1,0 +1,224 @@
+:root{
+    --heading: "Montserrat", sans-serif;
+    --paragraph: "Open Sans", sans-serif;
+    --navbar-background-color: #FFFFFF;
+    --background-color: rgba(236, 240, 241, 100);
+    --text-color: rgba(74, 74, 74, 100);
+    --logo-color: rgba(255, 160, 0, 100);
+    --notification-color: rgba(255, 160, 0, 100);
+    --support-color: #FFFFFF;
+}
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--paragraph);
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.button-primary, .button-secondary {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--heading);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-primary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+}
+
+.button-primary:hover {
+    background-color: var(--text-color);
+    color: var(--navbar-background-color);
+}
+
+.button-secondary {
+    background-color: var(--logo-color);
+    color: var(--navbar-background-color);
+}
+
+.button-secondary:hover {
+    background-color: #e69500;
+    transform: translateY(-2px);
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: var(--heading);
+    background-color: var(--navbar-background-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.navbar > .logo{
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.navbar > .logo > .logo-link{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar > .logo > .logo-link > .logo-icon{
+    color: var(--logo-color);
+    font-size: 1.5rem;
+}
+
+.navbar > .nav-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    width: 50%;
+}
+
+.navbar > .nav-menu > li{
+    list-style: none;
+}
+
+.navbar > .nav-menu > li > .nav-link{
+    text-decoration: none;
+    color: var(--text-color);
+    position: relative;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+/* Underline Effect using ::after pseudo-element */
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Start with no width (hidden) */
+    height: 3px; /* Thickness of the underline */
+    bottom: -5px; /* Position below the link */
+    left: 50%; /* Start from the center */
+    transform: translateX(-50%); /* Center the underline */
+    background-color: var(--logo-color); /* Use the logo color for consistency */
+    transition: width 0.3s ease-out; /* Smooth animation for width change */
+}
+
+/* Hover Effect: Underline appears */
+.navbar .nav-link:hover::after {
+    width: 100%; /* Expand to full width on hover */
+}
+
+/* Active Link Styles */
+.navbar .nav-link.active {
+    color: var(--logo-color); /* Use logo color for active link text */
+    font-weight: 700; /* Make it bolder */
+}
+
+/* Active Link Underline: Stays visible */
+.navbar .nav-link.active::after {
+    width: 100%; /* Always full width for the active link */
+}
+
+/* Optional: Add a subtle hover effect to the text color too */
+.navbar .nav-link:hover {
+    color: var(--logo-color); /* Use logo color on hover */
+}
+
+/* Navigation Actions */
+.navbar > .nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Hero Section */
+.hero-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+    gap: 100px;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.hero-section > .hero-text{
+    align-items: center;
+}
+
+.hero-section > .hero-text > .hero-title{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.hero-section > .hero-text > .hero-title > .gradient-text{
+    color: var(--logo-color);
+}
+
+.hero-section > .hero-text > .hero-description{
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.hero-section > .hero-text > .button-primary{
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.hero-section > .hero-text > .button-secondary{
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+.hero-section > .hero-video > video{
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
+    gap: 100px;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+.about-section > .section-header{
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+}
